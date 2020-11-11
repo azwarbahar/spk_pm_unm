@@ -155,11 +155,12 @@ $result= mysqli_query($conn,'SELECT * FROM tb_hasil_akhir_mahasiswa');
                       <th>Nama</th>
                       <th>Nilai</th>
                       <th style="width: 40px">Ranking</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
-                    $hasil_akhir = mysqli_query($conn, "SELECT * FROM tb_hasil_akhir_mahasiswa ORDER BY nilai_hasil_akhir_mahasiswa");
+                    $hasil_akhir = mysqli_query($conn, "SELECT * FROM tb_hasil_akhir_mahasiswa ORDER BY nilai_hasil_akhir_mahasiswa DESC");
                     $i = 1; foreach($hasil_akhir as $dta_hasil_akhir) {
                     ?>
                     <tr>
@@ -177,10 +178,15 @@ $result= mysqli_query($conn,'SELECT * FROM tb_hasil_akhir_mahasiswa');
                         echo "<td><span class='badge bg-secondary'> Ranking $i </span></td>";
                       }
                       ?>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-info btn-sm" href="#"><i class="fas fa-print"></i> Print</a>
+                      </td>
                     </tr>
                     <?php $i = $i + 1; } ?>
                   </tbody>
                 </table>
+                <br>
+                <a href="ranking-print.php" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print Ranking</a>
               </div>
               </div>
             </div>
