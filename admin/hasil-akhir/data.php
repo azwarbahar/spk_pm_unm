@@ -408,7 +408,7 @@ require_once '../template/header/header.php';
                         }
                           $total_akhir = array_sum($himpun_baru);
                           echo "<td>$total_akhir</td>";
-                          $query_hasil_akhir_mahasiswa = "UPDATE tb_hasil_akhir_mahasiswa SET nilai_hasil_akhir_mahasiswa = '$total_akhir'
+                          $query_hasil_akhir_mahasiswa = "UPDATE tb_hasil_akhir_mahasiswa SET nama_mahasiswa = '$dta_mahasiswa2[nama_mahasiswa]', nilai_hasil_akhir_mahasiswa = '$total_akhir'
                                                             WHERE id_mahasiswa = '$dta_mahasiswa2[id_mahasiswa]'";
                           mysqli_query($conn, $query_hasil_akhir_mahasiswa);
                       }

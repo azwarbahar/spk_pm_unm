@@ -55,6 +55,7 @@ $dta = mysqli_fetch_assoc($mahasiswa);
                                     <div class="card card-primary card-outline">
                                         <div class="card-body box-profile">
                                             <input type="hidden" value="<?= $dta['id_mahasiswa'] ?>" name="id_mahasiswa">
+                                            <input type="hidden" value="<?= $dta['nama_mahasiswa'] ?>" name="nama_mahasiswa">
                                             <h4 class="text-center"><?= $dta['nama_mahasiswa'] ?></h4>
                                             <br>
                                             <ul class="list-group list-group-unbordered mb-3">

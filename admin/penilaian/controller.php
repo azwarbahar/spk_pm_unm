@@ -12,6 +12,7 @@ require('../../koneksi.php');
 if (isset($_POST['submit_penilaian'])) {
 
 	$id_mahasiswa = $_POST['id_mahasiswa'];
+	$nama_mahasiswa = $_POST['nama_mahasiswa'];
 	$id_aspek = array();
 	$id_kriteria = array();
 	$nilai = array();
@@ -39,7 +40,7 @@ if (isset($_POST['submit_penilaian'])) {
 		$b = $b + 1;
 	}
 	if (mysqli_affected_rows($conn) > 0) {
-		$query6= "INSERT INTO tb_hasil_akhir_mahasiswa VALUES (NULL, '$id_mahasiswa', '')";
+		$query6= "INSERT INTO tb_hasil_akhir_mahasiswa VALUES (NULL, '$id_mahasiswa', '$nama_mahasiswa' ,'')";
 		mysqli_query($conn, $query6);
 		plugins(); ?>
 		<script>
