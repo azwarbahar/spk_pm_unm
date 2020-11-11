@@ -1,7 +1,10 @@
 <?php
 require '../../koneksi.php';
+$id_mahasiswa = $_GET['id_mahasiswa'];
+$ranking = $_GET['ranking'];
 $hasil_akhir = mysqli_query($conn, "SELECT * FROM tb_hasil_akhir_mahasiswa ORDER BY nilai_hasil_akhir_mahasiswa DESC");
-
+$mahasiswa = mysqli_query($conn, "SELECT * FROM tb_mahasiswa WHERE id_mahasiswa = '$id_mahasiswa'");
+$dta = mysqli_fetch_assoc($mahasiswa);
 
 ?>
 
@@ -16,11 +19,11 @@ $hasil_akhir = mysqli_query($conn, "SELECT * FROM tb_hasil_akhir_mahasiswa ORDER
   <!-- Bootstrap 4 -->
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="/reses-dprd/assets/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/spk_pm_unm/assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="/reses-dprd/assets/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/spk_pm_unm/assets/dist/css/adminlte.min.css">
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -41,17 +44,39 @@ $hasil_akhir = mysqli_query($conn, "SELECT * FROM tb_hasil_akhir_mahasiswa ORDER
       </div><br>
       <!-- /.col -->
       
+      <div class="col-sm-3 invoice-col">
+
+        <address>
+          <strong>No Induk</strong><br>
+          <strong>Nama</strong><br>
+          <strong>Jenis Kelamin</strong><br>
+          <strong>Tanggal Lahir</strong><br>
+          <strong>Hasil :</strong><br>
+        </address>
+      </div>
+
+      
+      <div class="col-sm-6 invoice-col">
+
+        <address>
+          <strong>: <?= $dta['no_induk_mahasiswa'] ?></strong><br>
+          <strong>: <?= $dta['nama_mahasiswa'] ?></strong><br>
+          <strong>: <?= $dta['jekel_mahasiswa'] ?></strong><br>
+          <strong>: <?= $dta['tgl_lahir_mahasiswa'] ?></strong><br>
+        </address>
+      </div>
+      
     </div>
     <!-- /.row -->
 
     <!-- Table row -->
     <div class="row">
       <div class="col-12 table-responsive">
-        <table class="table table-bordered table-striped">
+        <table class="table table-striped">
           <thead>
           <tr>
             <th style="text-align: center; font-size: 15px;">No</th>
-            <th style="text-align: center; font-size: 15px;">Nama</th>
+            <th style="font-size: 15px;">Nama</th>
             <th style="text-align: center; font-size: 15px;">Nilai</th>
             <th style="text-align: center; font-size: 15px;">Ranking</th>
           </tr>

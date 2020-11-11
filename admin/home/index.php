@@ -179,7 +179,7 @@ $result= mysqli_query($conn,'SELECT * FROM tb_hasil_akhir_mahasiswa');
                       }
                       ?>
                       <td class="project-actions text-right">
-                          <a class="btn btn-info btn-sm" href="#"><i class="fas fa-print"></i> Print</a>
+                          <a class="btn btn-info btn-sm" target="_blank" href="nilai-mahasiswa-print.php?id_mahasiswa=<?= $dta_hasil_akhir['id_mahasiswa']  ?>&ranking=<?= $i ?>"><i class="fas fa-print"></i> Print</a>
                       </td>
                     </tr>
                     <?php $i = $i + 1; } ?>
