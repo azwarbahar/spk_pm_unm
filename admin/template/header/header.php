@@ -5,43 +5,6 @@ if (!isset($_SESSION['login_admin'])) {
   header("location: ../login.php");
 }
 
-// // Set Nama Dan Foto Header
-// $get_id_session = $_SESSION['get_id'];
-// $query_header_akun = mysqli_query($conn, "SELECT * FROM tb_akun WHERE id = '$get_id_session'");
-// $get_data_akun = mysqli_fetch_assoc($query_header_akun);
-// $get_id_akun_admin = $get_data_akun['id_akun'];
-// $query_header_admin = mysqli_query($conn, "SELECT * FROM tb_admin WHERE id_admin = '$get_id_akun_admin'");
-// $get_data_admin = mysqli_fetch_assoc($query_header_admin);
-// $nama = $get_data_admin['nama_admin'];
-// $foto = $get_data_admin['foto_admin'];
-
-
-// // CEK DURASI JADWAL RESES
-//   //cek tgl sekarang
-// $tanggal_sekarang = date('d-m-Y');
-
-// $jadwal = mysqli_query($conn, "SELECT * FROM tb_jadwal");
-
-// foreach($jadwal as $dta) {
-
-//   $status = null;
-//   $tanggal_mulai = date('d-m-Y', strtotime($dta['mulai_jadwal']));
-//   $tanggal_akhir = date('d-m-Y', strtotime($dta['akhir_jadwal']));
-//   if (strtotime($tanggal_sekarang) < strtotime($tanggal_mulai)) {
-//     $status = 'Menunggu';
-//   } else if (strtotime($tanggal_mulai) <= strtotime($tanggal_sekarang) &&
-//          strtotime($tanggal_akhir) >= strtotime($tanggal_sekarang)) {
-//           $status = 'Berjalan';
-//   } else if (strtotime($tanggal_sekarang) > strtotime($tanggal_akhir)) {
-//     $status = 'Selesai';
-//   }
-
-//   $query = "UPDATE tb_jadwal SET status_jadwal = '$status' WHERE id_jadwal = '$dta[id_jadwal]'";
-// 	mysqli_query($conn, $query);
-
-// }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +12,7 @@ if (!isset($_SESSION['login_admin'])) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Reses DPRD</title>
+  <title>SPK | Profile Matching</title>
   <link rel="icon" href="/spk_pm_unm/assets/dist/img/logo_unm_bg_white.png">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +42,7 @@ if (!isset($_SESSION['login_admin'])) {
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-red navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -105,46 +68,6 @@ if (!isset($_SESSION['login_admin'])) {
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
 
-      <!-- Notifications Dropdown Menu -->
-
-      <?php
-        // $aspirasi_header = mysqli_query($conn, "SELECT * FROM tb_aspirasi WHERE status_aspirasi='Kirim'");
-        // $row_aspirasi_header = mysqli_num_rows($aspirasi_header);
-        // $row_aspirasi_header_final = $row_aspirasi_header;
-        // if($row_aspirasi_header_final > 0){
-        //   echo "  <li class='nav-item dropdown'>
-        //             <a class='nav-link' data-toggle='dropdown' href='#'>
-        //               <i class='far fa-bell'></i>
-        //               <span class='badge badge-warning navbar-badge'>$row_aspirasi_header_final</span>
-        //             </a>
-        //             <div class='dropdown-menu dropdown-menu-lg dropdown-menu-right'>
-        //               <span class='dropdown-item dropdown-header'>$row_aspirasi_header_final Pemberitahuan</span>
-        //               <div class='dropdown-divider'></div>
-        //               <a href='/spk_pm_unm/admin/laporan-masuk/data.php' class='dropdown-item'>
-        //                 <i class='fas fa-envelope mr-2'></i> $row_aspirasi_header_final Laporan Masuk
-        //               </a>
-        //               <div class='dropdown-divider'></div>
-        //               <a href='/spk_pm_unm/admin/laporan-masuk/data.php' class='dropdown-item dropdown-footer'>Lihat Semua</a>
-        //             </div>
-        //           </li>";
-        // } else{
-        //   echo "  <li class='nav-item dropdown'>
-        //             <a class='nav-link' data-toggle='dropdown' href='#'>
-        //               <i class='far fa-bell'></i>
-        //             </a>
-        //             <div class='dropdown-menu dropdown-menu-lg dropdown-menu-right'>
-        //               <span class='dropdown-item dropdown-header'>0 Pemberitahuan</span>
-        //               <div class='dropdown-divider'></div>
-        //               <a href='#' class='dropdown-item'>
-        //                 <i class='fas fa-envelope mr-2'></i> Tidak Ada
-        //               </a>
-        //               <div class='dropdown-divider'></div>
-        //               <a href='#' class='dropdown-item dropdown-footer'>Lihat Semua</a>
-        //             </div>
-        //           </li>";
-
-        // }
-      ?>
 
     </ul>
   </nav>

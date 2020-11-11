@@ -30,7 +30,7 @@ $result= mysqli_query($conn,'SELECT * FROM tb_hasil_akhir_mahasiswa');
     <section class="content">
       <div class="container-fluid">
 
-                <div class="alert alert-info alert-dismissible">
+                <div class="alert alert-secondary alert-dismissible">
                   <!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> -->
                   <h5><i class="icon fas fa-info"></i> Welcome Back!</h5>
                   Selamat Datang <b>Admin</b>
