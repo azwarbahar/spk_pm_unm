@@ -327,9 +327,12 @@ require_once '../template/header/header.php';
                               $tampung_total[$z] = $total;
                               $z = $z + 1;
                               echo "<td style='text-align:center'>$total</td>";
+                              $query_hasil_akhir_aspek = "UPDATE tb_hasil_akhir_aspek SET nilai_hasil_akhir_aspek = '$total'
+                                                                                      WHERE id_mahasiswa = '$dta_mahasiswa[id_mahasiswa]'
+                                                                                    AND id_aspek = '$dta_aspek[id_aspek]'";
+                              mysqli_query($conn, $query_hasil_akhir_aspek);
                               echo "
                                 </tr>";
-                                
                             $array_aspek[$rowaspek] =  $tampung_total;
                             }
                           }
@@ -405,6 +408,9 @@ require_once '../template/header/header.php';
                         }
                           $total_akhir = array_sum($himpun_baru);
                           echo "<td>$total_akhir</td>";
+                          $query_hasil_akhir_mahasiswa = "UPDATE tb_hasil_akhir_mahasiswa SET nilai_hasil_akhir_mahasiswa = '$total_akhir'
+                                                            WHERE id_mahasiswa = '$dta_mahasiswa2[id_mahasiswa]'";
+                          mysqli_query($conn, $query_hasil_akhir_mahasiswa);
                       }
                       $nomor = $nomor + 1;
                     }

@@ -39,6 +39,8 @@ if (isset($_POST['submit_penilaian'])) {
 		$b = $b + 1;
 	}
 	if (mysqli_affected_rows($conn) > 0) {
+		$query6= "INSERT INTO tb_hasil_akhir_mahasiswa VALUES (NULL, '$id_mahasiswa', '')";
+		mysqli_query($conn, $query6);
 		plugins(); ?>
 		<script>
 			$(document).ready(function() {
@@ -61,6 +63,10 @@ if (isset($_GET['hapus_nilai'])) {
 	$query = "DELETE FROM tb_nilai WHERE id_mahasiswa = '$id_mahasiswa'";
 	mysqli_query($conn, $query);
 	if (mysqli_affected_rows($conn) > 0) {
+	$query2 = "DELETE FROM tb_hasil_akhir_aspek WHERE id_mahasiswa = '$id_mahasiswa'";
+	mysqli_query($conn, $query2);
+	$query3 = "DELETE FROM tb_hasil_akhir_mahasiswa WHERE id_mahasiswa = '$id_mahasiswa'";
+	mysqli_query($conn, $query3);
 		plugins(); ?>
 		<script>
 			$(document).ready(function() {
