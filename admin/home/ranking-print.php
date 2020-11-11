@@ -11,6 +11,7 @@ $hasil_akhir = mysqli_query($conn, "SELECT * FROM tb_hasil_akhir_mahasiswa ORDER
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Universita Negeri Makassar</title>
+  <link rel="icon" href="/spk_pm_unm/assets/dist/img/logo_unm_bg_white.png">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap 4 -->
